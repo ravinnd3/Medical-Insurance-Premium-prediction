@@ -4,9 +4,14 @@ import pickle
 import os
 
 # Load trained model
-model = pickle.load(open("Insurance_premium_prediction.sav", "rb"))
+file_path = "Insurance_premium_prediction.sav"
+if os.path.exists(file_path):
+    model = pickle.load(open(file_path, "rb"))
+else:
+    print(f"Error: {file_path} not found!")
 
-# Title of the UI
+
+# Title
 st.title("Insurance Charge Predictor")
 
 # Create input fields
